@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'icons/font/css/open-iconic-bootstrap.css' %}" >
 
   </head>
 
@@ -22,7 +22,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand" href="{% url 'home' %}">
           <img src="{% static 'logo.png' %}" height=30 width=30 class="d-inline-block align-top" />
           Product Hunt</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               {% if user.is_authenticated %}
+              <li class="nav-item ">
+                <a class="nav-link active" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
               </li>
@@ -64,6 +67,7 @@
           <a href="#">Back to top</a>
         </p>
         <p>© Shubham Goswami {% now "Y" %}</p>
+        <a> Icon made by Freepik from <a href="www.flaticon.com"> www.flaticon.com </a>.</a>
       </div>
     </footer>
     
