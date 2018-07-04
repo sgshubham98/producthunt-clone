@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<!Doctype html>
+<head>
+	<style>
+	
+	$font-family:   "Roboto";
+	$font-size:     14px;
+	
+	* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	}
+
+	body {
+    font-family: $font-family;
+    font-size: $font-size;
+    background-size: 200% 100% !important;
+    height: 100vh
+    }
+    
+    .user {
+    width: 90%;
+    max-width: 340px;
+    margin: 10vh auto;
+	}
+
+	.user_title {
+    font-size: $font-size;
+    margin-bottom: -10px;
+    font-weight: 500;
+    color: #da522f;
+	}
+
+	.form {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+
+	}
+
+	.form_input {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: $font-family;
+    -webkit-appearance: none;
+	}
+
+	.btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: $font-family;
+    -webkit-appearance: none;
+    background-color: #212529;
+    color: white;
+    }
+
+    .error {
+    	font-family: $font-family;
+    	color: red;
+    	font-size: $font-size;
+    	text-align: center;
+    }
+
+	</style>
+</head>
+
+<body>
+	<div class="user">
+    	<header >
+    		<div class="error">
+    			{% if error %}
+				{{ error }}
+				{% endif %}
+    		</div>
+        	<h1 class="user_title text-center">LogIn</h1>
+    	</header>
+    
+    	<form class="form" method="POST" action="{% url 'login' %}">
+    		{% csrf_token %}
+        	<div class="form_group">
+            	<input type="text" placeholder="Username" name="username" class="form_input" />
+        	</div>
+
+        	<div class="form_group">
+            	<input type="password" placeholder="Password" name="password" class="form_input" />
+        	</div>
+        
+        	<button class="btn" type="button submit">Login</button>
+    	</form>
+	</div>
+</body>
+
+</html>
+
+{% endblock %}
